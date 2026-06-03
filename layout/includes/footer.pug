@@ -1,7 +1,32 @@
 .footer
-  span ©️2019-#{new Date().getFullYear()} Designed By&nbsp;
-    strong
-      a(href='https://github.com/random-yang') RandomYang
-    |  Powered By&nbsp;
   strong
-    a(href='https://hexo.io') hexo
+    a(href='https://hexo.io') Hexo
+  |  theme Paper by  
+  strong
+      a(href='https://github.com/random-yang') RandomYang
+  |
+  ||
+  | Written By 
+  strong
+      a(href=config.email ? 'mailto:' + config.email : '#') #{config.author || 'Unknown'}
+  |
+  br
+  if config.icp
+    | &nbsp;
+    a(href='https://beian.miit.gov.cn/') #{config.icp}
+    |
+    || 
+    |
+  if config.icp_beian
+    a(href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=14010602060961') #{config.icp_beian}
+    br
+  |
+  a(href='https://www.foreverblog.cn/go.html') 十年之约-虫洞
+  |
+  ||
+  | 遵循CC BY-NC-SA 4.0协议共享
+  br
+  | 本站总访问量 
+  span#busuanzi_value_site_pv
+  |  次 · 访客数 
+  span#busuanzi_value_site_uv

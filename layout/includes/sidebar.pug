@@ -1,9 +1,11 @@
 .sidebar
+  include ./search
+
   //- 默认参数 true
-  if !page.posts && (theme.toc === undefind || theme.toc === true)
+  if !page.posts && (theme.toc === undefined || theme.toc === true)
     include ./toc
 
-  if theme.link === undefind || theme.link === true
+  if theme.link === undefined || theme.link === true
     h2 Links
     .sidebar__link
       if theme.social
@@ -12,17 +14,17 @@
             li
               a(href=url_for(url)) #{label}
 
-  if theme.archives === undefind || theme.archives === true
+  if theme.archives === undefined || theme.archives === true
     h2 Archives
     .sidebar__archives
       != list_archives({type:"yearly", format: "YYYY", show_count: false})
 
-  if theme.categories === undefind || theme.categories === true
+  if theme.categories === undefined || theme.categories === true
     h2 Categories
     .sidebar__categories
       != list_categories({show_count: false})
 
-  if theme.tags === undefind || theme.tags === true
+  if theme.tags === undefined || theme.tags === true
     h2 Tags
     .sidebar__tags
       != list_tags({show_count: false})

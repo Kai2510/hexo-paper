@@ -1,0 +1,12 @@
+if page.content && theme.comment && theme.comment.engine === 'artalk'
+  link(rel="stylesheet" href=theme.comment.artalk.server + "/dist/Artalk.css")
+  script(src=theme.comment.artalk.server + "/dist/Artalk.js" defer)
+  script.
+    window.addEventListener('DOMContentLoaded', () => {
+      Artalk.init({
+        el: '#comments',
+        server: '#{theme.comment.artalk.server}',
+        site: '#{theme.comment.artalk.site || "弦月之舞"}',
+        placeholder: '#{theme.comment.artalk.placeholder || "写两句吧"}',
+      })
+    })

@@ -1,0 +1,31 @@
+- var desc = ''
+- if (page.description) { desc = page.description }
+- else if (page.excerpt) { desc = strip_html(page.excerpt) }
+- else if (config && config.description) { desc = config.description }
+- if (desc && desc.length > 200) { desc = desc.substring(0, 200) }
+- var pageUrl = url_for(page.path || '/')
+
+meta(name="description" content=desc)
+meta(name="robots" content="index, follow")
+link(rel="canonical" href=pageUrl)
+
+meta(property="og:title" content=page.title || config.title)
+meta(property="og:description" content=desc)
+meta(property="og:url" content=pageUrl)
+meta(property="og:type" content=is_post() ? "article" : "website")
+meta(property="og:site_name" content=config.title)
+
+meta(name="twitter:card" content="summary")
+meta(name="twitter:title" content=page.title || config.title)
+meta(name="twitter:description" content=desc)
+
+if is_post()
+  script(type="application/ld+json").
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "#{page.title}",
+      "description": "#{desc}",
+      "datePublished": "#{date(page.date)}",
+      "url": "#{pageUrl}"
+    }

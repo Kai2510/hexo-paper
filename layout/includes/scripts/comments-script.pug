@@ -1,14 +1,14 @@
-if page.content && theme.comment && theme.comment.enable
+if page.content && theme.comment && theme.comment.engine === 'valine'
   script(src="https://www.unpkg.com/valine/dist/Valine.min.js" defer)
   script.
     window.addEventListener('DOMContentLoaded', () => {
       new Valine({
         el: '#comments',
-        appId: '#{theme.comment.appId}',
-        appKey: '#{theme.comment.appKey}',
-        notify: #{theme.comment.notify},
-        verify: #{theme.comment.notify},
-        avatar: '#{theme.comment.avatar}',
-        placeholder: '#{theme.comment.placeholder}',
+        appId: '#{theme.comment.valine.appId}',
+        appKey: '#{theme.comment.valine.appKey}',
+        notify: #{theme.comment.valine.notify},
+        verify: #{theme.comment.valine.verify},
+        avatar: '#{theme.comment.valine.avatar}',
+        placeholder: '#{theme.comment.valine.placeholder}',
       })
     })
